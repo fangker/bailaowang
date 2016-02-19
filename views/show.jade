@@ -1,0 +1,64 @@
+extends layout
+
+block content
+
+    .app-bar
+        a.app-bar-element Home
+        span.app-bar-divider
+        ul.app-bar-menu
+            li
+                a(href="") Home
+            li
+                a.dropdown-toggle(href="") 下拉菜单
+                ul.d-menu(data-role="dropdown")
+                    li
+                        a(href="") 内容
+                    li
+                        a(href="") 内容
+                    li
+                        a(href="") 内容
+                    li
+                        a(href="") 内容
+                    li.divider
+                    li
+                        a.dropdown-toggle(href="") 内容
+                        ul.d-menu(data-role="dropdown")
+                            li
+                                a(href="") 内容
+                            li
+                                a(href="") 内容
+                            li
+                                a(href="") 内容
+    .grid.fg-black
+        .row.cells3
+            .cell.debug
+            .cell
+                img(src="/images/1.jpg")
+                form.input-control.full-size(action="/data/search?sinput="+guanjianci+"&page=1", method="get")
+                    div
+                        label.input-control.checkbox
+                            input#leixing.button(type="radio", name="leixing", value="baidu", checked="checked")
+                            span.check
+                            span.caption 百度网盘
+                        label.input-control.checkbox
+                            input#leixing.button(type="radio", name="leixing", value="360")
+                            span.check
+                            span.caption 360网盘
+                    div
+                        input(type="text", name="guanjianci", autocomplete="off", placeholder="搜索", required="required",value=title)
+                    br
+                    div
+                        button.button.primary.block-shadow-warningtext-shadow(type="submit")
+                            span 搜索
+            .cell.debug
+
+
+     for item in data
+         div.cell.debug
+                a(href=item.url)
+                 !{item.name}
+                 br
+         !{item.message}
+
+
+
